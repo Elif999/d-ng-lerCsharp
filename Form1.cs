@@ -1,4 +1,4 @@
-namespace WinFormsApp27
+namespace WinFormsApp28
 {
     public partial class Form1 : Form
     {
@@ -6,81 +6,100 @@ namespace WinFormsApp27
         {
             InitializeComponent();
         }
-        /*þöylede yapabiliriz uzun yol ama yinede bil 
-     int sayi = Convert.ToInt32(textBox1.Text);
-          int bitiþ = Convert.ToInt32(textBox2.Text);
-          for (int i=sayi;i<=bitiþ;i++)
-          {
-              MessageBox.Show(i.ToString());
-          }
-          for (int j = bitiþ; j == bitiþ; j++)
-          {
-              MessageBox.Show(j.ToString());
-          }
-          MessageBox.Show("döngü" + bitiþ + " kez çalýþtý");
 
-      */
         private void button1_Click(object sender, EventArgs e)
         {
-            int baslangýc = Convert.ToInt32(textBox1.Text);
-            int bitiþ = Convert.ToInt32(textBox2.Text);
-            for (int i = baslangýc; i <= bitiþ; i++)
+            for (int i = 0; i <= 10; i++)
             {
-                MessageBox.Show(i.ToString());
+                listBox1.Items.Add(i.ToString());
             }
-            
+
         }
-  
-    
-      
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            for (int i = 11; i <= 20; i++)
+            {
+                listBox1.Items.Add(i.ToString());
+            }
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            listBox1.Items.Clear();
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
-/*
- Tabii ki! Verdiðiniz kod parçasý, bir Windows Forms uygulamasýnda bir butona týklandýðýnda 
-kullanýcýdan alýnan iki sayý arasýnda (baþlangýç ve bitiþ) her bir sayýyý bir mesaj kutusunda gösteren 
-bir iþlevi yerine getiriyor. Þimdi kodun mantýðýný adým adým açýklayayým.
+/*Tabii ki! Verdiðiniz kod parçasý, bir Windows Forms uygulamasýnda üç farklý butonun iþlevlerini tanýmlýyor. 
+ Her butonun týklanma olayýnda ne olduðunu adým adým açýklayayým.
 
 Kodun Tamamý:
 private void button1_Click(object sender, EventArgs e)
 {
-    int baslangýc = Convert.ToInt32(textBox1.Text);
-    int bitiþ = Convert.ToInt32(textBox2.Text);
-    for (int i = baslangýc; i <= bitiþ; i++)
+    for (int i = 0; i <= 10; i++)
     {
-        MessageBox.Show(i.ToString());
+        listBox1.Items.Add(i.ToString());
     }
 }
-Adým Adým Açýklama
 
-Kullanýcý Girdilerini Alma:
-int baslangýc = Convert.ToInt32(textBox1.Text);
-int bitiþ = Convert.ToInt32(textBox2.Text);
-Bu satýrlar, kullanýcýdan alýnan deðerleri textBox1 ve textBox2 adlý metin kutularýndan alýr.
-textBox1'den alýnan deðer baslangýc deðiþkenine atanýr ve textBox2'den alýnan deðer bitiþ deðiþkenine atanýr.
-Convert.ToInt32(...) ifadesi, metin kutusundan alýnan string deðerini tam sayýya (int) dönüþtürür.
-
-Döngü ile Sayýlarý Gösterme:
-for (int i = baslangýc; i <= bitiþ; i++)
+private void button2_Click(object sender, EventArgs e)
 {
-    MessageBox.Show(i.ToString());
+    for (int i = 11; i <= 20; i++)
+    {
+        listBox1.Items.Add(i.ToString());
+    }
 }
-for döngüsü, i deðiþkenini baslangýc deðerinden baþlatýr ve bitiþ deðerine kadar (bitiþ dahil) devam eder.
-i <= bitiþ ifadesi, döngünün i deðeri bitiþ deðerine eþit veya daha küçük olduðu sürece devam etmesini saðlar.
-Her döngü adýmýnda, i deðeri bir mesaj kutusunda (MessageBox.Show(...)) gösterilir. 
-i.ToString() ifadesi, i deðerini string (metin) formatýna dönüþtürerek mesaj kutusuna eklenmesini saðlar.
 
-Örnek
-Eðer kullanýcý textBox1'e 3 ve textBox2'ye 7 sayýsýný girerse:
-Ýlk döngü adýmýnda (i = 3): Mesaj kutusunda 3 gösterilir.
-Ýkinci döngü adýmýnda (i = 4): Mesaj kutusunda 4 gösterilir.
-Üçüncü döngü adýmýnda (i = 5): Mesaj kutusunda 5 gösterilir.
-Dördüncü döngü adýmýnda (i = 6): Mesaj kutusunda 6 gösterilir.
-Beþinci döngü adýmýnda (i = 7): Mesaj kutusunda 7 gösterilir.
-Sonuç
-Kullanýcý textBox1'e 3 ve textBox2'ye 7 girdiðinde,
-program 3'ten 7'ye kadar (her biri için ayrý bir mesaj kutusu açarak) þu sayýlarý gösterir: 3, 4, 5, 6, 7.
+private void button3_Click(object sender, EventArgs e)
+{
+    listBox1.Items.Clear();
+}
+
+Adým Adým Açýklama
+button1_Click Olayý:
+private void button1_Click(object sender, EventArgs e)
+{
+    for (int i = 0; i <= 10; i++)
+    {
+        listBox1.Items.Add(i.ToString());
+    }
+}
+Bu metot, button1 butonuna týklandýðýnda çalýþýr.
+Ýçinde bir for döngüsü var. Bu döngü, i deðiþkenini 0'dan baþlatýr ve 10'a kadar (10 dahil) devam eder.
+Her döngü adýmýnda, i deðeri listBox1 adlý liste kutusuna eklenir. i.ToString() ifadesi, i deðerini metin formatýna çevirir.
+Sonuç olarak, listBox1'de 0'dan 10'a kadar (dahil) sayýlar görünecektir.
+button2_Click Olayý:
+
+private void button2_Click(object sender, EventArgs e)
+{
+    for (int i = 11; i <= 20; i++)
+    {
+        listBox1.Items.Add(i.ToString());
+    }
+}
+Bu metot, button2 butonuna týklandýðýnda çalýþýr.
+Ýçinde bir for döngüsü var. Bu döngü, i deðiþkenini 11'den baþlatýr ve 20'ye kadar (20 dahil) devam eder.
+Her döngü adýmýnda, i deðeri listBox1'e eklenir.
+Sonuç olarak, listBox1'de 11'den 20'ye kadar (dahil) sayýlar görünecektir. Ancak, bu iþlem listBox1'de zaten var olan öðelerin altýna eklenir, 
+yani 0-10 arasý sayýlar ve 11-20 arasý sayýlar birlikte görünür.
+button3_Click Olayý:
+
+private void button3_Click(object sender, EventArgs e)
+{
+    listBox1.Items.Clear();
+}
+Bu metot, button3 butonuna týklandýðýnda çalýþýr.
+listBox1.Items.Clear() ifadesi, listBox1 içindeki tüm öðeleri temizler. Yani, liste kutusundaki tüm sayýlar silinir.
 Özet
-Bu kod,kullanýcýdan alýnan iki sayý arasýnda(baþlangýç ve bitiþ) her bir sayýyý bir mesaj kutusunda gösterir.
-Kullanýcý button1 butonuna týkladýðýnda bu iþlem gerçekleþir.
-Eðer baþka bir konuda daha fazla bilgi isterseniz, lütfen belirtin!
+button1: Týklandýðýnda listBox1'e 0'dan 10'a kadar sayýlarý ekler.
+button2: Týklandýðýnda listBox1'e 11'den 20'ye kadar sayýlarý ekler (önceki sayýlarla birlikte).
+button3: Týklandýðýnda listBox1'deki tüm sayýlarý temizler.
+Bu kod, kullanýcý arayüzünde sayýlarý listelemek ve listeyi temizlemek için basit bir yapý sunuyor. Eðer daha fazla açýklama veya örnek isterseniz, lütfen belirtin!
 */
